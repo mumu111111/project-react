@@ -6,7 +6,7 @@ function component(){
 
     var element = $('<div></div>');  
 
-    element.html(_.join(['hi','webpack'],' '))
+    element.html(_.join(['look me','webpack'],' '))
     return element.get(0);   
 }
 

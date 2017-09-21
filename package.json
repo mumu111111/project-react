@@ -5,16 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    
-     "bulid":"webpack -p",
-     "dev":"webpack --progress  --watch"
-    
+    "bulid": "webpack -p",
+    "dev": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
     "jquery": "^3.2.1",
