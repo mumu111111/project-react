@@ -1,9 +1,12 @@
 import _ from 'lodash'
+import $ from 'jquery'
 
-function component(){//新建div标签   填内容  返回div  插入到body中
-    var element = document.createElement('div');
-    element.innerHTML= _.join(['hello','webpack'],' ');   //后面的表示空格   <div>hello webnpack</div>
-    return element;
+function component(){
+
+    var element = $('<div></div>');  
+
+    element.html(_.join(['hello','webpack'],' '))
+    return element.get(0);   
 }
 
 document.body.appendChild(component());
