@@ -6,10 +6,10 @@ function component(){
 
     var element = $('<div></div>');  
 
-    element.html(_.join(['hello','webpack'],' '))
+    element.html(_.join(['hi','webpack'],' '))
     return element.get(0);   
 }
 
 document.body.appendChild(component());
-console.log(foo)
-console.log(foo())
+console.log(foo);
+console.log(foo());

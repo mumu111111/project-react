@@ -82,13 +82,13 @@ function component(){
 
     var element = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('<div></div>');  
 
-    element.html(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['hello','webpack'],' '))
+    element.html(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['hi','webpack'],' '))
     return element.get(0);   
 }
 
 document.body.appendChild(component());
-console.log(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */])
-console.log(Object(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */])())
+console.log(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */]);
+console.log(Object(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */])());
 
 /***/ }),
 /* 1 */
