@@ -12,7 +12,7 @@ import Welcome from './Welcome'
 
 
 ReactDOM.render(
-    <Welcome/>,
+    <Welcome name="frank"/>,
     document.getElementById('root2')
 )
 
