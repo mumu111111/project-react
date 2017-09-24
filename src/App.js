@@ -14,9 +14,9 @@ constructor(props){
   this.state ={
     newTodo: 'test',
     todoList: [
-      {id: 1, titile: '第一个待办'},
-      {id: 2, titile: '第二个待办'},
-      {id: 3, titile: '第三个待办'}
+      {id: 1, title: '第一个待办'},
+      {id: 2, title: '第二个待办'},
+      {id: 3, title: '第三个待办'}
     ]
   }
 }  
