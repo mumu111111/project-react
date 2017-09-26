@@ -11,15 +11,10 @@
 }
 
 .App> .todoList> li:nth-child(even){
-
   background: teansparent;
-  
-
 }
 
 .App> .todoList> li:nth-child(odd){
-  
     background: #eee;
-  
   }
   
