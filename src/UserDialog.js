@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 export default class UserDialog extends Component{
     render(){
         return (
@@ -7,7 +8,7 @@ export default class UserDialog extends Component{
 
                     <nav>
                         <input type="radio"/>注册
-                        <input type="redio"/>登录
+                        <input type="radio"/>登录
                     </nav>
                     <div class="panes">
                         <form className="signUp">{/*注册*/}

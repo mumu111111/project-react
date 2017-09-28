@@ -51,6 +51,7 @@ let todos= this.state.todoList
       <ol className="todoList">
         {todos}
       </ol>
+      <UserDialog />
     </div>
   )
 }
