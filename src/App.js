@@ -51,7 +51,7 @@ let todos= this.state.todoList
   )
 }
 componentDidUpdate(){
-    localStorage.save('todoList', this.state.todoList)
+    localStore.save('todoList', this.state.todoList)
 }
 
 toggle(e, todo){
