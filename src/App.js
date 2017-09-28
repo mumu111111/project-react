@@ -6,7 +6,13 @@ import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import * as localStore from './localStore'
 
+var APP_ID = 'PhKLNaD4ngHHYBGenSkNjorW-gzGzoHsz';
+var APP_KEY = 'HcgdMkCHvbAmyscEFSHrYva9';
 
+AV.init({
+  appId: APP_ID,
+  appKey: APP_KEY
+});
 
 
 class App extends Component {
