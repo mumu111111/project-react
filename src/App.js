@@ -16,6 +16,7 @@ constructor(props){
   super(props)
 
   this.state ={
+    user: {},
     newTodo:'',
     todoList:  []
   }
@@ -42,7 +43,7 @@ let todos= this.state.todoList
 
   return (
     <div className='App'>
-      <h1>我的待办</h1>
+      <h1>{this.state.user.username||'我'}的待办</h1>
       <div className='inputWrapper'>
         <TodoInput content={this.state.newTodo} 
            onChange={this.changeTitle.bind(this)}
@@ -51,10 +52,17 @@ let todos= this.state.todoList
       <ol className="todoList">
         {todos}
       </ol>
-      <UserDialog />
+      <UserDialog  onSignUp={this.onSignUp.bind(this)}/>
     </div>
   )
 }
+onSignUp(user){
+  
+  let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+  stateCopy.user = user
+  this.setState(stateCopy)
+}
+
 componentDidUpdate(){
 }
 
