@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './UserDialog.css'
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud'
 import SignUpForm from './SignUpForm.js'
+import SignInForm from './SignInForm.js'
 
 export default class UserDialog extends Component{
 
@@ -78,31 +79,7 @@ export default class UserDialog extends Component{
     render(){
 
        
-let signInForm=(
-            <form className="signIn" 
-            
-            onSubmit={this.signIn.bind(this)}>{/*登录*/}
 
-                <div className="row">
-                    <label>用户名</label>
-                    <input type="text" value={
-                        this.state.formData.username
-                    }
-                    onChange={this.changFormData.bind(this, 'username')}/>
-                </div>
-                <div className="row">
-                    <label>密码</label>
-                    <input type="password" value={
-                        this.state.formData.password
-                    }
-                    onChange={this.changFormData.bind(this, 'password')}/>
-                </div>
-                <div className="row actions">
-                    <button type="submit">登录</button>
-                    <a href="#" onClick={this.showForgotPassword.bind(this)}>忘记密码了？</a>
-                </div>
-            </form>
-        )
 
         let signInOrSignUp= (
             <div className="signInOrSignUp">
@@ -126,7 +103,15 @@ let signInForm=(
                        onSubmit={this.signUp.bind(this)}
                        onChange={this.changFormData.bind(this)}/>
                      : null}
-                    {this.state.selected === 'signIn' ? signInForm : null}
+
+                     
+                    {this.state.selected === 'signIn' ? 
+                       <SignInForm formData={this.state.formData}
+                         onSubmit={this.signIn.bind(this)}
+                         onChange={this.changFormData.bind(this)}
+                         onForgotPassword={this.showForgotPassword.bind(this)}/>
+                         
+                     : null}
                 </div>
         </div>
         )
