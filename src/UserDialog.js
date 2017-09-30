@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './UserDialog.css'
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud'
-import SignUpForm from './SignUpForm.js'
-import SignInForm from './SignInForm.js'
+import SignUpForm from './SignUpForm'
+import SignInForm from './SignInForm'
+import  ForgotPasswordForm from './ForgotPasswordForm'
 
 export default class UserDialog extends Component{
 
@@ -34,6 +35,7 @@ export default class UserDialog extends Component{
            }
            let error =(error)=>{
             switch(error.code){
+                
                 case 202:  alert('用户名已被占用')
                 break
                 default: alert(error)
@@ -51,6 +53,8 @@ export default class UserDialog extends Component{
         }
         let error= (error)=>{
             switch(error.code){
+                
+                
                 case 210: alert('用户名与密码不匹配')
                 break
                 default: alert(error)
@@ -117,33 +121,19 @@ export default class UserDialog extends Component{
         )
 
 
-        let forgotPassword =(
-
-            <div className="forgotPassword">
-            <h3>
-              重置密码
-            </h3>
-            <form className="forgotPassword" onSubmit={this.resetPassword.bind(this)}> {/* 登录*/}
-              <div className="row">
-                <label>邮箱</label>
-                <input type="text" value={this.state.formData.email}
-                  onChange={this.changFormData.bind(this, 'email')}/>
-              </div>
-              <div className="row actions">
-                <button type="submit">发送重置邮件</button>
-                <a href="#" 
-                onClick={this.returnToSignIn.bind(this)}>返回登录</a>
-              </div>
-            </form>
-          </div>
-        )
-
+        
 
         return (
             <div className="UserDialog-Wrapper">
                 <div className="UserDialog">
                     {this.state.selectedTab ==='signInOrSignUp' ?
-                              signInOrSignUp : forgotPassword
+                              signInOrSignUp : 
+                              <ForgotPasswordForm 
+                                formData={this.state.formData}
+                                onSubmit={this.resetPassword.bind(this)}
+                                onChange={this.changFormData.bind(this, 'email')}
+                                onSignIn={this.returnToSignIn.bind(this)}
+                              />
                     }
                 </div>
                     
