@@ -5,7 +5,7 @@ import 'normalize.css'
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import UserDialog from './UserDialog'
-import　{getCurrentUser, signOut} from './leanCloud'
+import　{getCurrentUser, signOut,TodoModel} from './leanCloud'
 
 
  
@@ -96,20 +96,25 @@ changeTitle(event){
 }
 
   addTodo(event){
-   this.state.todoList.push({
-     id: idMaker(),
-     title: event.target.value,
-     status: null,
-     deleted: false
+   let newTodo ={
+    title: event.target.value,
+    status: null,
+    deleted: false
+   }
+     
+   TodoModel.create(newTodo, (id)=>{
+     newTodo.id= id;
+     this.state.todoList.push(newTodo)
+     this.setState({
+       newTodo: '',
+       todoList: this.state.todoList
+     })
+   }, (error)=>{
+
+    console.log(error)
    })
 
-   this.setState({
-     newTodo: '',
-     todoList: this.state.todoList
-   })
   }
-
-
 
   delete(event, todo){
         todo.deleted = true
@@ -123,9 +128,3 @@ changeTitle(event){
 
 export default App;
 
-let id=0
-
-function idMaker(){
-  id += 1
-  return id
-}

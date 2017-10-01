@@ -16,7 +16,7 @@ function submit(props, e){
         }
     
 function changeTitle(props, e){
-    this.props.onChange(e)
+      props.onChange(e)
 }
 
 
