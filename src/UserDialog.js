@@ -36,9 +36,15 @@ export default class UserDialog extends Component{
            }
            let error =(error)=>{
             switch(error.code){
-                
+                case 125 : alert('没有提供邮箱地址')
+                break
+                case 211 : alert('用户名为空')
+                break
                 case 202:  alert('用户名已被占用')
                 break
+                case 203: alert('邮箱已经被占用')
+                break
+                
                 default: alert(error)
                 break
             }
@@ -54,8 +60,10 @@ export default class UserDialog extends Component{
         }
         let error= (error)=>{
             switch(error.code){
-                
-                
+                case 201 : alert('密码为空')
+                break
+                case 211 : alert('用户名为空')
+                break
                 case 210: alert('用户名与密码不匹配')
                 break
                 default: alert(error)
@@ -107,7 +115,7 @@ export default class UserDialog extends Component{
                               <ForgotPasswordForm 
                                 formData={this.state.formData}
                                 onSubmit={this.resetPassword.bind(this)}
-                                onChange={this.changFormData.bind(this, 'email')}
+                                onChange={this.changFormData.bind(this)}
                                 onSignIn={this.returnToSignIn.bind(this)}
                               />
                     }
