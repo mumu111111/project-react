@@ -38,6 +38,17 @@ export const TodoModel ={
     todo.set('title',title)
     todo.set('status', status)
     todo.set('deleted', deleted)
+
+
+     // 这样做就可以让这个 Todo 只被当前用户看到
+ +    let acl = new AV.ACL()
+ +    acl.setPublicReadAccess(false) // 注意这里是 false
+ +    acl.setWriteAccess(AV.User.current(), true)
+ +
+ +    todo.setACL(acl);
+
+
+
     todo.save().then(function (reponse){
       successFn.call(null, reponse.id)
     }, function (error){

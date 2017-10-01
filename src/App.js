@@ -22,6 +22,18 @@ constructor(props){
     newTodo:'',
     todoList:  []
   }
+
+let user =getCurrentUser() 
+if(user){
+  TodoModel.getByUser(user,(todos)=>{
+    let stateCopy =JSON.parse(JSON.stringify(this.state))
+    stateCopy.todoList =todos
+    this.setState(stateCopy)
+
+  })
+
+}
+
 }  
 
 
