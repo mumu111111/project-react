@@ -41,11 +41,11 @@ export const TodoModel ={
 
 
      // 这样做就可以让这个 Todo 只被当前用户看到
- +    let acl = new AV.ACL()
- +    acl.setPublicReadAccess(false) // 注意这里是 false
- +    acl.setWriteAccess(AV.User.current(), true)
- +
- +    todo.setACL(acl);
+     let acl = new AV.ACL()
+     acl.setPublicReadAccess(false) // 注意这里是 false
+     acl.setWriteAccess(AV.User.current(), true)
+ 
+     todo.setACL(acl);
 
 
 
