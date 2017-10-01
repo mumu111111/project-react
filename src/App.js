@@ -116,7 +116,7 @@ changeTitle(event){
   addTodo(event){
    let newTodo ={
     title: event.target.value,
-    status: null,
+    status: '',
     deleted: false
    }
      

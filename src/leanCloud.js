@@ -20,6 +20,7 @@ export const TodoModel ={
   getByUser(user, successFn , errorFn){
 
     let query = new AV.Query('Todo')
+    query.equalTo('deleted', false);
     query.find().then((response)=>{
       let array=response.map((t)=>{
         return {id: t.id, ...t.attributes}
@@ -44,7 +45,7 @@ export const TodoModel ={
      let acl = new AV.ACL()
      acl.setPublicReadAccess(false) // 注意这里是 false
      acl.setWriteAccess(AV.User.current(), true)
- 
+     acl.setReadAccess(AV.User.current(), true)
      todo.setACL(acl);
 
 
@@ -78,14 +79,13 @@ export const TodoModel ={
   },
 
   destroy(todoId, successFn, errorFn){
-    		     // 文档 https://leancloud.cn/docs/leanstorage_guide-js.html#删除对象
+      // 文档 https://leancloud.cn/docs/leanstorage_guide-js.html#删除对象
         let todo = AV.Object.createWithoutData('Todo', todoId)
         todo.destroy().then(function (response) {
           successFn && successFn.call(null)
         }, function (error) {
           errorFn && errorFn.call(null, error)
-       });
-
+        });
   }
 }
 
