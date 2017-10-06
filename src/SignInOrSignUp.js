@@ -9,7 +9,7 @@ export default class SignInOrSignUp  extends Component{
     constructor(props){
         super(props)
         this.state={
-            selected : 'signUp'
+            selected : 'signIn'
         }
     }
 
@@ -21,30 +21,67 @@ export default class SignInOrSignUp  extends Component{
     }
 
 
+    switchSignUp(){
+
+        this.setState({
+            selected: 'signUp'
+        })
+    }
+
+
+    switchSignIn(){
+        
+                this.setState({
+                    selected: 'signIn'
+                })
+            }
+    
+
     render(){
         return (
         
          
                 <div className="signInOrSignUp">
                 
-                    <nav >
-                        <label><input type="radio" value="signUp"
+                    {/* <nav  className ='tabs'> */}
+                        {/* <label>
+                            <input type="radio" value="signUp"
                         checked={this.state.selected==='signUp'}
-                        onChange={this.switch.bind(this)}
-                        />注册
+                        onChange={this.switch.bind(this)}/>
+                        注册
+                        </label> */}
+          
+
+
+
+                        {/* <li>
+                        <label>
+                            <input type="radio" value="signUp"
+                        checked={this.state.selected==='signUp'}
+                        onChange={this.switch.bind(this)}/>
+                        注册
                         </label>
-                        <label><input type="radio" value="signIn"
+                        </li>
+
+                        <li>
+                        <label>
+                            <input type="radio" value="signIn"
                         checked={this.state.selected==="signIn"}
-                        onChange={this.switch.bind(this)}
-                        />登录
+                        onChange={this.switch.bind(this)}/>
+                        登录
                         </label>
-                    </nav>
+                        </li>
+                    </nav> */}
+
                     <div className="panes">
                         {this.state.selected === 'signUp' ?
                         
                          <SignUpForm formData ={this.props.formData}
                            onSubmit={this.props.onSignUp.bind(this)}
-                           onChange={this.props.onChange.bind(this)}/>
+                           onChange={this.props.onChange.bind(this)}
+                           switchSignUp= {this.switchSignUp.bind(this)}
+                           switchSignIn= {this.switchSignIn.bind(this)}
+                           />
                          : null}
     
                          
@@ -52,7 +89,10 @@ export default class SignInOrSignUp  extends Component{
                            <SignInForm formData={this.props.formData}
                              onSubmit={this.props.onSignIn.bind(this)}
                              onChange={this.props.onChange.bind(this)}
-                             onForgotPassword={this.props.onForgotPassword.bind(this)}/>
+                             onForgotPassword={this.props.onForgotPassword.bind(this)}
+                             switchSignIn= {this.switchSignIn.bind(this)}
+                             switchSignUp= {this.switchSignUp.bind(this)}
+                             />
                              
                          : null}
                     </div>

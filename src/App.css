@@ -15,6 +15,23 @@
 }
 
 .App> .todoList> li:nth-child(odd){
-    background: #eee;
+    background: rgba(211, 204, 204, 0.73);
   }
-  
+.list-title{
+  padding: 20px 0;
+  margin-bottom: 40px;
+  width: 100%;
+  color: #ECAE3B;
+}
+ 
+
+.tuichu:hover{
+    color: #F1803E;
+    opacity: 0.6;
+}
+.outdel{
+    display: inline-block;
+    margin-left: 220px; 
+    
+    
+}

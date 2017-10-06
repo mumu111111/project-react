@@ -23,11 +23,16 @@ function changeTitle(props, e){
 export default function(props) {
 
     
-        return <input type='text' value= {props.content} 
+        return (
+        
+        <input type='text' value= {props.content} 
            className="TodoInput"
+           placeholder="Add your travel plan"
            onChange={changeTitle.bind(null, props)}
-           onKeyPress={submit.bind(null, props)}/>
-    
+           onKeyPress={submit.bind(null, props)}
+           />
+          
+        )
   
 
 }

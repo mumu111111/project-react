@@ -57,11 +57,11 @@ let todos= this.state.todoList
 
   return (
     <div className='App'>
-      <h1>{this.state.user.username||'我'}的待办
-          {this.state.user.id ? <button onClick=
-              {this.signOut.bind(this)}>登出</button> : null
+      <h2 className="list-title" >Welcome ,{this.state.user.username||'You'}
+          {this.state.user.id ? 
+              <span  className="outdel" onClick={this.signOut.bind(this)}><i className="icon tuichu" ></i></span> : null
           }
-      </h1>
+      </h2>
       <div className='inputWrapper'>
         <TodoInput content={this.state.newTodo} 
            onChange={this.changeTitle.bind(this)}

@@ -31,22 +31,38 @@ export default class UserDialog extends Component{
     signUp(e){
            e.preventDefault()
            let {email,username, password}= this.state.formData
+           if(!this.checkInfo.call(this,email,username,password)){
+            return
+          } 
            let success= (user)=>{
               this.props.onSignUp.call(null, user)
            }
            let error =(error)=>{
             switch(error.code){
-                case 125 : alert('没有提供邮箱地址')
+                // case 125 : alert('没有提供正确邮箱地址')
+                // break
+                // case 211 : alert('用户名为空')
+                // break
+                case 200: 
+                alert('用户名不能为空')
                 break
-                case 211 : alert('用户名为空')
+             
+                case 204:
+                alert('没有提供电子邮箱地址')
                 break
                 case 202:  alert('用户名已被占用')
                 break
                 case 203: alert('邮箱已经被占用')
                 break
-                
+                case 201 : alert('密码不能为空')
+                break
+               
+                case 210: alert('用户名与密码不匹配')
+                break
                 default: alert(error)
                 break
+
+             
             }
            }
            signUp(email, username, password, success, error)
@@ -62,22 +78,36 @@ export default class UserDialog extends Component{
             switch(error.code){
                 case 201 : alert('密码为空')
                 break
-                case 211 : alert('用户名为空')
+                case 211 : alert('用户名不存在')
                 break
                 case 210: alert('用户名与密码不匹配')
                 break
+               
                 default: alert(error)
                 break
             }
         }
 
         signIn(username, password, success, error)
-
-
-
     }
 
+    checkInfo(email, username, password){
+        let regEmail = /\w+@/
+        let regUsername = /\w{3,}/
+        let regPassWord = /.{6,}/
 
+        if(!regEmail.test(email)){
+            alert('邮箱书写不正确')
+            return false
+        }else if (!regUsername.test(username)){
+            alert('用户名不能少于三位')
+            return false
+        }else if(!regPassWord.test(password)){
+            alert('密码不能少于六位')
+            return false
+        }
+        return true
+    }
     changFormData(key, e){
         let stateCopy =JSON.parse(JSON.stringify(this.state))
         stateCopy.formData[key]= e.target.value
@@ -85,19 +115,7 @@ export default class UserDialog extends Component{
     }
    
 
-
-
-
-
     render(){
-
-       
-
-
-        
-
-
-        
 
         return (
             <div className="UserDialog-Wrapper">

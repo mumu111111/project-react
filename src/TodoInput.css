@@ -3,5 +3,36 @@
       line-height: 1.8;
       margin-bottom: 1em;
       font-size: 16px;
-      padding: 0 .2em;
+      padding: .3em .2em;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #ddd;
+      transition: all 1s
+}
+
+.TodoInput:focus{
+      border-bottom-color:#EB9748;
+
+}
+
+.global-input{
+      position:relative;
+    }
+.TodoInputut{
+      border:1px solid red;
+      width:200px;
+      height:30px;
+      line-height:30px;
+      padding:0;
+      /* border:none; */
+      border-bottom:1px solod #666;
+
+}
+.prompt{
+      position:absolute;
+      top:0;
+      left:5px;
+      color:#ccc;
+      height:30px;
+      line-height:30px;
 }

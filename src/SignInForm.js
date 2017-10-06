@@ -1,4 +1,5 @@
 import  React  from 'react';
+import './SignInForm.css'
 
 export default function (props){
  
@@ -8,26 +9,40 @@ export default function (props){
           
                 <form className="signIn" 
                 
-                  onSubmit={props.onSubmit}>{/*登录*/}
-    
+                  onSubmit={props.onSubmit.bind(this)}>{/*登录*/}
+                  <div className='circle'>
+                        <i className="icon logo"></i>
+                    </div>
+                    <div className='circle'>
+                        <h2>SIGN IN</h2>
+                    </div>
+                    <p className="explain">Sign in and you can create travel plan </p>
                     <div className="row">
-                        <label>用户名</label>
-                        <input type="text" value={
-                            props.formData.username
-                        }
-                        onChange={props.onChange.bind(null, 'username')}/>
+                        <i className="user icon"></i>
+                        <div className="input-box">
+                          <input type="text" value={
+                               props.formData.username
+                             } 
+                             placeholder="User name"  
+                             onChange={props.onChange.bind(null, 'username')}/>
+                        </div>
                     </div>
                     <div className="row">
-                        <label>密码</label>
-                        <input type="password" value={
-                            props.formData.password
-                        }
-                        onChange={props.onChange.bind(null, 'password')}/>
+                        <i className="password icon"></i>
+                        <div className="input-box">
+                            <input type="password" value={
+                                props.formData.password
+                               }
+                               placeholder="Password"  
+                               onChange={props.onChange.bind(null, 'password')}/>
+                            </div>
                     </div>
+                    <p className="forgot">Forgot your password？<a href="#" onClick={props.onForgotPassword}>Get password help</a></p>
                     <div className="row actions">
-                        <button type="submit">登录</button>
-                        <a href="#" onClick={props.onForgotPassword}>忘记密码了？</a>
+                        <button className="btn" type="submit">SIGN IN</button>
+                        
                     </div>
+                    <p className="login"><a href="#" onClick={props.switchSignUp}>Create a new account</a></p>
                 </form>
             )
 
